@@ -25,7 +25,9 @@ class MyTurtle:
             self.execute_command(symbol)
     
     def execute_command(self, s: Symbol):
-        return self.interpretation[s.type](s)
+        if self.interpretation.__contains__(s.type):
+            self.interpretation[s.type](s)
+        return
     
     def move_forward(self, s: Symbol):
         forward(self.line_length)

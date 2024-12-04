@@ -1,8 +1,13 @@
 from turtle import mainloop
-from Symbol import string_to_chain
-from MyTurtle import MyTurtle
+from lsystems.CoolLSystem import CoolLSystem
+from Symbol import chain_to_string
+from MyTurtle import MyTurtle, delay
 
-chain = string_to_chain("F+(90)F-(90)F-(90)FF")
+lsystem = CoolLSystem()
 my_turtle = MyTurtle()
+delay(1)
+chain = lsystem.generate_nth_chain(8)
+print(str.format("drawing chain {}", chain_to_string(chain)))
 my_turtle.process_chain(chain)
 mainloop()
+

@@ -8,7 +8,9 @@ class Symbol:
         pass
 
     def __str__(self):
-        return str.format("{{ type: {0}, value: {1} }}", self.type, self.value)
+        if self.type == '+' or self.type == '-':
+            return str.format("{}({})", self.type, self.value)
+        return self.type
 
 '''
 F -> Ir e desenhar para frente
@@ -40,8 +42,6 @@ def string_to_chain(s: str):
     chain = []
     pos = 0
     while pos < len(s):
-        if(s[pos] not in TYPES):
-            raise SyntaxError("Invalid symbol: Not correct symbol type")
         
         if s[pos] == '+' or s[pos] == '-':
             symbol_type = s[pos]
@@ -68,4 +68,10 @@ def string_to_int(t: str):
         return val
     except:
         raise SyntaxError('Degree change argument must be a number')
+    
+def chain_to_string(chain):
+    s = ""
+    for symbol in chain:
+        s += str(symbol)
+    return s
 
