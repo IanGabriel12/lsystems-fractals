@@ -5,8 +5,7 @@ from MyTurtle import MyTurtle, delay
 
 lsystem = CoolLSystem()
 my_turtle = MyTurtle()
-delay(1)
-chain = lsystem.generate_nth_chain(8)
+chain = lsystem.generate_nth_chain(4)
 print(str.format("drawing chain {}", chain_to_string(chain)))
 my_turtle.process_chain(chain)
 mainloop()
