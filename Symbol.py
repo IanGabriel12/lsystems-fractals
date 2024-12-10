@@ -11,6 +11,11 @@ class Symbol:
         if self.type == '+' or self.type == '-':
             return str.format("{}({})", self.type, self.value)
         return self.type
+    
+    def __eq__(self, other):
+        if not isinstance(other, Symbol):
+            return NotImplemented
+        return other.value == self.value and other.type == self.type
 
 '''
 F -> Ir e desenhar para frente
@@ -75,3 +80,5 @@ def chain_to_string(chain):
         s += str(symbol)
     return s
 
+def is_empty(l: list):
+    return not l
